@@ -1,0 +1,209 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef4ff;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* Navigation */
+
+nav{
+    background:linear-gradient(90deg,#1565C0,#42A5F5);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 70px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-inline-start:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#1565C0;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:18px;
+    color:#555;
+}
+
+/* Main Container */
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+/* Cards */
+
+.card{
+    flex:1;
+    min-width:350px;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#1565C0;
+}
+
+.card label{
+    display:block;
+    margin-top:15px;
+    font-weight:500;
+}
+
+.card select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+/* Buttons */
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#1565C0;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0D47A1;
+    transform:scale(1.03);
+}
+
+/* Result */
+
+#result{
+    background:#f8f9fa;
+    border-radius:10px;
+    padding:20px;
+    margin-top:20px;
+    min-height:200px;
+}
+
+/* Algorithms */
+
+.algorithms{
+    margin:70px auto;
+    width:90%;
+}
+
+.algorithms h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#1565C0;
+}
+
+.algo-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.algo{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.algo:hover{
+    transform:translateY(-8px);
+}
+
+.algo h3{
+    color:#1565C0;
+    margin-bottom:10px;
+}
+
+/* Footer */
+
+footer{
+    margin-top:60px;
+    background:#1565C0;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:20px;
+}
+
+.container{
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+}

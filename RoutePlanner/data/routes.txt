@@ -1,0 +1,14 @@
+CITIES
+Delhi
+Jaipur
+Agra
+Mumbai
+ROADS
+Delhi,Jaipur,280
+Delhi,Agra,220
+Jaipur,Delhi,280
+Jaipur,Mumbai,1150
+Agra,Delhi,220
+Agra,Mumbai,1400
+Mumbai,Jaipur,1150
+Mumbai,Agra,1400

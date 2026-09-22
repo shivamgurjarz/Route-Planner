@@ -1,0 +1,130 @@
+:root {
+  --navy: #1f3864;
+  --accent: #2e7d32;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --border: #e0e4ea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  color: #222;
+}
+
+header {
+  background: var(--navy);
+  color: white;
+  padding: 24px 32px;
+}
+
+header h1 { margin: 0 0 4px 0; font-size: 26px; }
+header p { margin: 0; opacity: 0.85; font-size: 14px; }
+
+main {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px 60px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+input, select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 16px;
+  background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover { background: #16294a; }
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #e8edf5;
+  color: var(--navy);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.result-box {
+  background: #f0f4fa;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  min-height: 40px;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+#historyList {
+  font-size: 13px;
+  color: #555;
+  max-height: 160px;
+  overflow-y: auto;
+  padding-left: 20px;
+}
+
+.reset-btn {
+  background: #b3261e;
+}
+
+.reset-btn:hover { background: #8f1e18; }
+
+.remove-link {
+  color: #b3261e;
+  cursor: pointer;
+  font-size: 12px;
+}

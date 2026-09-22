@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Route Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🚗 Smart Route Planner</h1>
+    <p>Graph-based route planning using BFS, DFS &amp; Dijkstra's Algorithm</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1. Add Cities</h2>
+      <div class="row">
+        <input id="cityInput" type="text" placeholder="City name (e.g. Delhi)">
+        <button onclick="addCity()">Add City</button>
+      </div>
+      <div id="cityList" class="chip-list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Connect Cities with Roads</h2>
+      <div class="row">
+        <select id="fromCity"></select>
+        <select id="toCity"></select>
+        <input id="distanceInput" type="number" placeholder="Distance (km)" min="0">
+        <button onclick="addRoad()">Add Road</button>
+      </div>
+      <table id="roadsTable">
+        <thead><tr><th>From</th><th>To</th><th>Distance (km)</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>3. Run Algorithms</h2>
+      <div class="row">
+        <select id="algoStart"></select>
+        <button onclick="runBfs()">Run BFS</button>
+        <button onclick="runDfs()">Run DFS</button>
+      </div>
+      <div class="row">
+        <select id="dijkstraStart"></select>
+        <span>→</span>
+        <select id="dijkstraEnd"></select>
+        <button onclick="runDijkstra()">Shortest Path (Dijkstra)</button>
+      </div>
+      <div id="resultBox" class="result-box">Results will appear here.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Route History</h2>
+      <ul id="historyList"></ul>
+    </section>
+
+    <button class="reset-btn" onclick="resetGraph()">Reset Everything</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

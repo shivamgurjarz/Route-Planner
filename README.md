@@ -1,132 +1,96 @@
-# Route-Planner
-# 🚗 Smart Route Planner
+# Smart Route Planner
 
-A Java-based Route Planning System that demonstrates the practical implementation of Data Structures and Algorithms (DSA). The project allows users to create a network of cities, connect them with roads, and find optimal routes using graph algorithms. A simple HTML, CSS, and JavaScript frontend is included to provide a clean and interactive user interface.
+A Java-based route planning system that models a network of cities as a graph
+and finds routes between them using BFS, DFS, and Dijkstra's Algorithm.
+Includes a browser-based frontend (HTML/CSS/JS) that talks to a small Java
+REST API — no external dependencies or database required.
 
----
+## Tech Stack
 
-## 📌 Features
+- **Backend:** Java 21 (uses only the built-in `com.sun.net.httpserver` — no
+  frameworks, no external libraries)
+- **Frontend:** HTML, CSS, JavaScript (calls the backend via `fetch`)
+- **Data structures/algorithms:** Graph (adjacency list), BFS, DFS,
+  Dijkstra's shortest path, Stack (route history)
 
-- ➕ Add new cities
-- 🛣️ Add roads with distances
-- 📍 Display all cities and roads
-- 🌐 Graph representation using Adjacency List
-- 🔍 Breadth First Search (BFS) Traversal
-- 🌲 Depth First Search (DFS) Traversal
-- 🚀 Shortest Path using Dijkstra's Algorithm
-- 📝 Route History using Stack
-- ✏️ Update road distances
-- ❌ Remove roads
-- 💻 Modern frontend built with HTML, CSS, and JavaScript
-
----
-
-## 🛠️ Technologies Used
-
-### Backend
-- Java
-- Object-Oriented Programming (OOP)
-
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
-
-### Data Structures
-- Graph (Adjacency List)
-- ArrayList
-- HashMap
-- Queue
-- Stack
-- Priority Queue
-
-### Algorithms
-- Breadth First Search (BFS)
-- Depth First Search (DFS)
-- Dijkstra's Shortest Path Algorithm
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```
-RoutePlanner/
-│
+smart-route-planner/
 ├── src/
-│   ├── Main.java
-│   ├── Menu.java
-│   ├── Graph.java
-│   ├── City.java
-│   ├── Edge.java
-│   ├── BFS.java
-│   ├── DFS.java
-│   ├── Dijkstra.java
-│   ├── RouteHistory.java
-│   └── ...
-│
-├── frontend/
+│   ├── Main.java     # HTTP server + REST endpoints
+│   └── Graph.java    # Graph data structure and algorithms
+├── public/
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
-│
+├── Dockerfile
 └── README.md
 ```
 
----
+## Run It Locally (no Docker needed)
 
-## 🚀 How to Run
+You need a JDK (Java 17+) installed.
 
-### Backend
+```bash
+cd smart-route-planner
+javac -d out src/*.java
+java -cp out Main
+```
 
-1. Open the project in Visual Studio Code.
-2. Compile the Java files.
-3. Run `Main.java`.
-4. Use the console menu to perform route planning operations.
+Then open **http://localhost:8080** in your browser.
 
-### Frontend
+## Run It With Docker
 
-Open `frontend/index.html` in any web browser.
+```bash
+cd smart-route-planner
+docker build -t route-planner .
+docker run -p 8080:8080 route-planner
+```
 
----
+Then open **http://localhost:8080**.
 
-## 📖 Concepts Demonstrated
+## Deploy It for Free (Render.com)
 
-This project demonstrates the use of:
+1. Push this folder to a GitHub repository (e.g. update your existing
+   `Route-Planner` repo, or push as a new repo).
+2. Go to [render.com](https://render.com) → New → **Web Service**.
+3. Connect your GitHub repo.
+4. Render will detect the `Dockerfile` automatically — choose **Docker** as
+   the environment (no build/start command needed, it's in the Dockerfile).
+5. Instance type: **Free**.
+6. Click **Create Web Service**. Render will build and deploy automatically.
+7. Once live, you'll get a URL like `https://route-planner-xxxx.onrender.com`
+   — this is your live demo link for your resume.
 
-- Graph Data Structure
-- Adjacency List Representation
-- BFS Traversal
-- DFS Traversal
-- Dijkstra's Algorithm
-- Stack
-- Queue
-- HashMap
-- ArrayList
-- Priority Queue
-- Object-Oriented Programming (OOP)
+> Note: Render's free tier spins the service down after inactivity, so the
+> first request after idle time can take ~30–60 seconds to wake up. This is
+> normal for free hosting and fine for a resume/portfolio link.
 
----
+## Deploy It for Free (Railway.app) — alternative
 
-## 🎯 Future Enhancements
+1. Push the folder to GitHub.
+2. Go to [railway.app](https://railway.app) → New Project → **Deploy from
+   GitHub repo**.
+3. Railway auto-detects the Dockerfile and builds it.
+4. Add a public domain from the service's **Settings → Networking** tab.
 
-- Interactive city map
-- Traffic simulation
-- Fuel cost estimation
-- Route optimization based on travel time
-- File/database storage
-- Java Swing or Web backend integration
-- GPS and map API integration
+## API Endpoints (for reference)
 
----
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/cities` | List all cities |
+| POST | `/api/cities` | Add a city (`name=`) |
+| GET | `/api/roads` | List all roads |
+| POST | `/api/roads` | Add a road (`from=`, `to=`, `distance=`) |
+| PUT | `/api/roads` | Update a road's distance |
+| DELETE | `/api/roads?from=&to=` | Remove a road |
+| GET | `/api/bfs?start=` | Run BFS from a city |
+| GET | `/api/dfs?start=` | Run DFS from a city |
+| GET | `/api/dijkstra?start=&end=` | Shortest path between two cities |
+| GET | `/api/history` | Recent operations (stack) |
+| POST | `/api/reset` | Clear all data |
 
-## 👨‍💻 Author
+## Author
 
-**Shivam Chauhan**
-
-B.Tech Computer Science & Engineering
-
----
-
-## ⭐ If you like this project
-
-Please consider giving it a ⭐ on GitHub.
+Shivam Chauhan — B.Tech Computer Science & Engineering
